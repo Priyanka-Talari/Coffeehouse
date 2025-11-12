@@ -7,10 +7,10 @@ This project combines modern web technologies to provide a seamless ordering, cu
 
 ## 🚀 Features
 
-- 💻 **Full-Stack Architecture** – Developed using **FastAPI** (backend) and **React.js** (frontend).
-- 🤖 **Interactive Chatbot** – Built-in chatbot for browsing the menu and customizing coffee orders.
-- 📦 **Real-Time Inventory** – Dynamic tracking of stock levels to ensure up-to-date availability.
-- 💬 **Customer Feedback Module** – Captures user experience and suggestions for continuous improvement.
+- **Full-Stack Architecture** – Developed using **FastAPI** (backend) and **React.js** (frontend).
+- **Interactive Chatbot** – Built-in chatbot for browsing the menu and customizing coffee orders.
+- **Real-Time Inventory** – Dynamic tracking of stock levels to ensure up-to-date availability.
+- **Customer Feedback Module** – Captures user experience and suggestions for continuous improvement.
 
 ---
 
