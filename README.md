@@ -28,4 +28,5 @@ This project combines modern web technologies to provide a seamless ordering, cu
 ## 🖼️ Screenshots
 
 ### 🏠 Home Page
-![Home Page](https://github.com/your-username/coffee-house-website/blob/main/assets/homepage.png?raw=true)
+![Coffee House Screenshot](https://github.com/your-username/your-repo/blob/main/assets/coffee_homepage.png?raw=true)
+
