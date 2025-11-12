@@ -13,9 +13,11 @@ DATABASE_CONFIG = {
 
 app = FastAPI()
 
+frontend_url = os.getenv("https://coffeehouse-seven.vercel.app/", "http://localhost:5173")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[frontend_url],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
