@@ -30,9 +30,10 @@ This project combines modern web technologies to provide a seamless ordering, cu
 ### Home Page
 ![Coffee House Screenshot](https://github.com/Priyanka-Talari/Coffeehouse/blob/main/coffeehouse%20Main%20Page.PNG?raw=true)
 
-[## 🎥 Demo Video
-![Coffee House Screenshot](CoffeeHouse .mp4)](https://github.com/Priyanka-Talari/Coffeehouse/blob/main/CoffeeHouse%20.mp4
-)
+<video width="600" controls>
+  <source src="https://github.com/Priyanka-Talari/Coffeehouse/blob/main/CoffeeHouse%20.mp4" type="video/mp4">
+</video>
+
 
 
 
