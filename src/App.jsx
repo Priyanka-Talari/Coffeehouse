@@ -143,8 +143,8 @@ const MainLayout = ({ user, cart, children }) => {
       {/* Admin pages use AdminNavbar, others use normal Navbar */}
       {isAdminRoute ? <AdminNavbar /> : <Navbar user={user} cart={cart} />}
 
-      {/* FIX: Push all content below navbar */}
-      <div className={isAdminRoute ? "pt-0" : "pt-20"}>
+      {/* FIXED: Single spacer that matches navbar height exactly (pt-16 = 64px = h-16) */}
+      <div className={isAdminRoute ? "pt-0" : "pt-16"}>
         {children}
       </div>
     </div>
