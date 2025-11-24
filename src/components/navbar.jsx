@@ -57,7 +57,7 @@ const Navbar = ({ cart = [] }) => {
 
             {/* Desktop Menu */}
             <div className="hidden sm:flex items-center space-x-4">
-              <ul className="flex items-center gap-3">
+              <ul className="flex items-center">
                 {Menu.map((menu) => (
                   <li key={menu.id}>
                     <button
