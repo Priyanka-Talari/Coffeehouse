@@ -28,9 +28,11 @@ const Navbar = ({ cart = [] }) => {
   };
 
   const Menu = [
-    { id: 1, name: "Menu", link: "/" },
+    { id: 1, name: "Home", link: "/" },
     { id: 2, name: "Chat", link: "/chat" },
     { id: 3, name: "Rewards", link: "/rewards" },
+    
+
   ];
 
   return (
