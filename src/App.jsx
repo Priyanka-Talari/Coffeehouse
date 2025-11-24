@@ -140,8 +140,13 @@ const MainLayout = ({ user, cart, children }) => {
 
   return (
     <div className="overflow-x-hidden">
+      {/* Admin pages use AdminNavbar, others use normal Navbar */}
       {isAdminRoute ? <AdminNavbar /> : <Navbar user={user} cart={cart} />}
-      {children}
+
+      {/* FIX: Push all content below navbar */}
+      <div className={isAdminRoute ? "pt-0" : "pt-20"}>
+        {children}
+      </div>
     </div>
   );
 };
