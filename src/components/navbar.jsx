@@ -34,169 +34,185 @@ const Navbar = ({ cart = [] }) => {
   ];
 
   return (
-    <nav className="bg-gradient-to-r from-secondary to-secondary/90 shadow-md text-white fixed w-full z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex-shrink-0 flex items-center">
-            <button
-              onClick={() => {
-                navigate("/");
-                setMenuOpen(false);
-              }}
-              className="font-bold text-xl sm:text-2xl flex items-center gap-2 font-cursive"
-            >
-              <img src={Logo} alt="Logo" className="w-10 sm:w-12" />
-              <span className="hidden sm:inline">CoffeeHouse</span>
-            </button>
-          </div>
+    <>
+      {/* FIX: navbar no border, no white line */}
+      <nav className="bg-gradient-to-r from-secondary to-secondary/90 shadow-lg text-white fixed w-full z-50 border-none">
 
-          {/* Desktop menu */}
-          <div className="hidden sm:flex sm:items-center sm:space-x-4">
-            <ul className="flex items-center gap-3">
-              {Menu.map((menu) => (
-                <li key={menu.id}>
-                  <button
-                    onClick={() => navigate(menu.link)}
-                    className="text-base py-2 px-3 text-white/80 hover:text-white bg-primary/70 rounded-lg hover:scale-105 duration-200"
-                  >
-                    {menu.name}
-                  </button>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between h-16">
+
+            {/* Logo */}
+            <div className="flex items-center">
+              <button
+                onClick={() => {
+                  navigate("/");
+                  setMenuOpen(false);
+                }}
+                className="font-bold text-xl sm:text-2xl flex items-center gap-2 font-cursive"
+              >
+                <img src={Logo} alt="Logo" className="w-10 sm:w-12" />
+                <span className="hidden sm:inline">CoffeeHouse</span>
+              </button>
+            </div>
+
+            {/* Desktop Menu */}
+            <div className="hidden sm:flex items-center space-x-4">
+              <ul className="flex items-center gap-3">
+                {Menu.map((menu) => (
+                  <li key={menu.id}>
+                    <button
+                      onClick={() => navigate(menu.link)}
+                      className="text-base py-2 px-3 text-white/80 hover:text-white 
+                      bg-primary/70 rounded-lg hover:scale-105 duration-200"
+                    >
+                      {menu.name}
+                    </button>
+                  </li>
+                ))}
+
+                {user && (
+                  <li>
+                    <button
+                      onClick={() => navigate("/profile")}
+                      className="text-base py-2 px-3 bg-primary/70 text-white 
+                      rounded-lg hover:scale-105 duration-200 flex items-center gap-2"
+                    >
+                      <FaUserCircle />
+                      <span className="hidden lg:inline">Profile</span>
+                    </button>
+                  </li>
+                )}
+
+                {user?.email === "admin@example.com" && (
+                  <li>
+                    <button
+                      onClick={() => navigate("/admin-dashboard")}
+                      className="text-base py-2 px-3 bg-green-600 text-white 
+                      rounded-lg hover:bg-green-700 duration-200"
+                    >
+                      Admin Dashboard
+                    </button>
+                  </li>
+                )}
+
+                <li>
+                  {user ? (
+                    <button
+                      onClick={handleLogout}
+                      className="text-base py-2 px-3 bg-red-600 text-white 
+                      rounded-lg hover:bg-red-700 duration-200"
+                    >
+                      Logout
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => navigate("/login")}
+                      className="text-base py-2 px-3 bg-blue-600 text-white 
+                      rounded-lg hover:bg-blue-700 duration-200"
+                    >
+                      Login
+                    </button>
+                  )}
                 </li>
+              </ul>
+
+              {/* Order Button */}
+              <button
+                className="bg-primary/70 text-white px-3 py-2 rounded-full 
+                flex items-center gap-2 hover:scale-105 duration-200"
+                onClick={() => navigate("/order")}
+              >
+                <span className="text-sm md:text-base">Order</span>
+                {cart.length > 0 && (
+                  <span className="ml-1 text-sm">({cart.length})</span>
+                )}
+                <FaCoffee className="text-lg" />
+              </button>
+            </div>
+
+            {/* Mobile Menu Icon */}
+            <div className="sm:hidden flex items-center">
+              <button
+                onClick={() => setMenuOpen((s) => !s)}
+                className="text-2xl p-2"
+              >
+                {menuOpen ? <FaTimes /> : <FaBars />}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Dropdown */}
+        {menuOpen && (
+          <div className="sm:hidden bg-secondary/95 px-4 pb-4">
+            <div className="space-y-3">
+              {Menu.map((menu) => (
+                <button
+                  key={menu.id}
+                  onClick={() => {
+                    navigate(menu.link);
+                    setMenuOpen(false);
+                  }}
+                  className="block w-full text-left text-base bg-primary/70 px-4 py-2 rounded-lg"
+                >
+                  {menu.name}
+                </button>
               ))}
 
               {user && (
-                <li>
-                  <button
-                    onClick={() => navigate("/profile")}
-                    className="text-base py-2 px-3 bg-primary/70 text-white rounded-lg hover:scale-105 duration-200 flex items-center gap-2"
-                  >
-                    <FaUserCircle />
-                    <span className="hidden lg:inline">Profile</span>
-                  </button>
-                </li>
+                <button
+                  onClick={() => {
+                    navigate("/profile");
+                    setMenuOpen(false);
+                  }}
+                  className="block w-full text-left bg-primary/70 px-4 py-2 rounded-lg flex items-center gap-2"
+                >
+                  <FaUserCircle />
+                  Profile
+                </button>
               )}
 
               {user?.email === "admin@example.com" && (
-                <li>
-                  <button
-                    onClick={() => navigate("/admin-dashboard")}
-                    className="text-base py-2 px-3 bg-green-600 text-white rounded-lg hover:bg-green-700 duration-200"
-                  >
-                    Admin Dashboard
-                  </button>
-                </li>
+                <button
+                  onClick={() => {
+                    navigate("/admin-dashboard");
+                    setMenuOpen(false);
+                  }}
+                  className="block w-full text-left bg-green-600 px-4 py-2 rounded-lg"
+                >
+                  Admin Dashboard
+                </button>
               )}
 
-              <li>
-                {user ? (
-                  <button
-                    onClick={handleLogout}
-                    className="text-base py-2 px-3 bg-red-600 text-white rounded-lg hover:bg-red-700 duration-200"
-                  >
-                    Logout
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => navigate("/login")}
-                    className="text-base py-2 px-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 duration-200"
-                  >
-                    Login
-                  </button>
-                )}
-              </li>
-            </ul>
-
-            <button
-              className="bg-primary/70 text-white px-3 py-2 rounded-full flex items-center gap-2 hover:scale-105 duration-200"
-              onClick={() => navigate("/order")}
-            >
-              <span className="text-sm md:text-base">Order</span>
-              {cart.length > 0 && <span className="ml-1 text-sm">({cart.length})</span>}
-              <FaCoffee className="text-lg" />
-            </button>
-          </div>
-
-          {/* Mobile hamburger */}
-          <div className="sm:hidden flex items-center">
-            <button
-              onClick={() => setMenuOpen((s) => !s)}
-              aria-label="Toggle menu"
-              className="text-2xl p-2"
-            >
-              {menuOpen ? <FaTimes /> : <FaBars />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile dropdown */}
-      {menuOpen && (
-        <div className="sm:hidden bg-secondary/95 px-4 pb-4">
-          <div className="space-y-3">
-            {Menu.map((menu) => (
               <button
-                key={menu.id}
                 onClick={() => {
-                  navigate(menu.link);
+                  if (user) handleLogout();
+                  else navigate("/login");
                   setMenuOpen(false);
                 }}
-                className="block w-full text-left text-base bg-primary/70 px-4 py-2 rounded-lg"
+                className="block w-full text-left bg-red-600 px-4 py-2 rounded-lg"
               >
-                {menu.name}
+                {user ? "Logout" : "Login"}
               </button>
-            ))}
 
-            {user && (
               <button
                 onClick={() => {
-                  navigate("/profile");
+                  navigate("/order");
                   setMenuOpen(false);
                 }}
                 className="block w-full text-left bg-primary/70 px-4 py-2 rounded-lg flex items-center gap-2"
               >
-                <FaUserCircle />
-                Profile
+                Order {cart.length > 0 && `(${cart.length})`}
+                <FaCoffee />
               </button>
-            )}
-
-            {user?.email === "admin@example.com" && (
-              <button
-                onClick={() => {
-                  navigate("/admin-dashboard");
-                  setMenuOpen(false);
-                }}
-                className="block w-full text-left bg-green-600 px-4 py-2 rounded-lg"
-              >
-                Admin Dashboard
-              </button>
-            )}
-
-            <button
-              onClick={() => {
-                if (user) handleLogout();
-                else navigate("/login");
-                setMenuOpen(false);
-              }}
-              className="block w-full text-left bg-red-600 px-4 py-2 rounded-lg"
-            >
-              {user ? "Logout" : "Login"}
-            </button>
-
-            <button
-              onClick={() => {
-                navigate("/order");
-                setMenuOpen(false);
-              }}
-              className="block w-full text-left bg-primary/70 px-4 py-2 rounded-lg flex items-center gap-2"
-            >
-              Order {cart.length > 0 && `(${cart.length})`}
-              <FaCoffee />
-            </button>
+            </div>
           </div>
-        </div>
-      )}
-    </nav>
+        )}
+      </nav>
+
+      {/* FIX: Prevent overlap — Add space below navbar */}
+      <div className="pt-20"></div>
+    </>
   );
 };
 
