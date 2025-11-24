@@ -207,11 +207,8 @@ const Menu = ({ addToCart }) => {
                 in the city
               </h1>
               <div data-aos="fade-up" data-aos-delay="400">
-                <button 
-                  onClick={scrollToMenu}
-                  className="bg-gradient-to-r from-primary to-secondary border-2 border-primary hover:scale-105 duration-200 text-white py-2 px-4 rounded-full"
-                >
-                  Scroll Down for Menu ▼
+                <button className="bg-gradient-to-r from-primary to-secondary border-2 border-primary hover:scale-105 duration-200 text-white py-2 px-4 rounded-full">
+                  Scroll Down for Menu
                 </button>
               </div>
             </div>
