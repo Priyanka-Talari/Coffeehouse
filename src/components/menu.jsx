@@ -9,16 +9,13 @@ import flatWhiteImage from "../assets/images/flat white.jpg";
 import cappuccinoImage from "../assets/images/cappuccino.jpg";
 import latteImage from "../assets/images/latte.jpg";
 import mochaImage from "../assets/images/cafe mocha.jpg";
-
 // Brewed Coffee
 import dripCoffeeImage from "../assets/images/Drip Coffee.jpg";
-
 // Cold Coffee
 import icedAmericanoImage from "../assets/images/icedAmericano.jpg";
 import icedLatteImage from "../assets/images/icedLatte.jpg";
 import icedMochaImage from "../assets/images/icedMocha.jpg";
 import nitroColdBrewImage from "../assets/images/nitroColdBrew.jpg";
-
 // Flavored & Specialty
 import caramelLatteImage from "../assets/images/caramelLatte.jpg";
 import vanillaLatteImage from "../assets/images/vanillaLatte.jpg";
@@ -26,7 +23,6 @@ import hazelnutMochaImage from "../assets/images/hazelnutMocha.jpg";
 import pumpkinSpiceLatteImage from "../assets/images/pumpkinSpiceLatte.jpg";
 import honeyAlmondLatteImage from "../assets/images/honeyAlmondLatte.jpg";
 import coconutMochaImage from "../assets/images/coconutMocha.jpg";
-
 // Pastries & Desserts
 import croissantAlmondImage from "../assets/images/almond crossiant.jpg";
 import croissantChocolateImage from "../assets/images/chocolate crossiant.jpg";
@@ -43,7 +39,6 @@ import cookieDoubleChocolateImage from "../assets/images/double chocolate cookie
 import muffinChocolateImage from "../assets/images/chocolate muffin.jpg";
 import muffinVanillaImage from "../assets/images/vanilla muffin.jpg";
 import muffinBlueberryImage from "../assets/images/blueberry muffin.jpg";
-
 // New Seasonal & Special Items
 import aamPannaImage from "../assets/images/Aam Panna Cold Brew.jpg";
 import mangoMalaiImage from "../assets/images/Mango Malai Frappe.jpg";
@@ -184,7 +179,7 @@ const Menu = ({ addToCart }) => {
     const milkType = selectedMilk[product.id] || "Whole Milk";
     const productWithMilk = { ...product, milkType };
     addToCart(productWithMilk);
-    alert('${product.name} with ${milkType} added to cart');
+    alert(`${product.name} with ${milkType} added to cart`);
   };
 
   const handleMilkChange = (productId, milk) => {
@@ -196,15 +191,15 @@ const Menu = ({ addToCart }) => {
 
   return (
     <div className="bg-brandDark text-white">
-      <div className="min-h-[550px] sm:min-h-[600px] flex justify-center items-center">
+      <div className="min-h-[550px] sm:min-h-[600px] flex justify-center items-center px-4">
         <div className="container pb-8 sm:pb-0">
-          <div className="grid grid-cols-1 sm:grid-cols-2">
-            <div className="flex flex-col justify-center gap-6 pt-12 sm:pt-0 text-center sm:text-left order-2 sm:order-1">
-              <h1 data-aos="fade-up" data-aos-once="true" className="text-5xl sm:text-6xl lg:text-7xl font-bold">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+            <div className="flex flex-col justify-center gap-6 pt-8 sm:pt-0 text-center sm:text-left order-2 sm:order-1">
+              <h1 data-aos="fade-up" data-aos-once="true" className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
                 We serve the Best{" "}
-                <span 
-                  data-aos="zoom-out" 
-                  data-aos-delay="300" 
+                <span
+                  data-aos="zoom-out"
+                  data-aos-delay="300"
                   className="bg-clip-text text-transparent bg-gradient-to-b from-primary to-primary/90 font-cursive"
                 >
                   Coffee
@@ -217,17 +212,17 @@ const Menu = ({ addToCart }) => {
                 </button>
               </div>
             </div>
-            <div data-aos="zoom-in" data-aos-duration="300" className="min-h-[450px] flex justify-center items-center relative order-1 sm:order-2">
-              <img 
-                data-aos-once="true" 
-                src={coffee2} 
-                alt="Coffee" 
-                className="w-[300px] sm:w-[450px] sm:scale-125 mx-auto spin" 
+            <div data-aos="zoom-in" data-aos-duration="300" className="min-h-[350px] sm:min-h-[450px] flex justify-center items-center relative order-1 sm:order-2">
+              <img
+                data-aos-once="true"
+                src={coffee2}
+                alt="Coffee"
+                className="w-44 sm:w-64 lg:w-[420px] object-contain mx-auto spin"
               />
-              <div data-aos="fade-left" className="bg-gradient-to-r from-primary to-secondary p-3 rounded-xl absolute top-10 left-10">
+              <div data-aos="fade-left" className="bg-gradient-to-r from-primary to-secondary p-3 rounded-xl absolute top-6 left-4 sm:top-10 sm:left-10">
                 <h1 className="text-white">Welcome,</h1>
               </div>
-              <div data-aos="fade-right" data-aos-offset="0" className="bg-gradient-to-r from-primary to-secondary p-3 rounded-xl absolute bottom-10 right-10">
+              <div data-aos="fade-right" data-aos-offset="0" className="bg-gradient-to-r from-primary to-secondary p-3 rounded-xl absolute bottom-6 right-4 sm:bottom-10 sm:right-10">
                 <h1 className="text-white">To Coffeehouse!!</h1>
               </div>
             </div>
@@ -235,46 +230,52 @@ const Menu = ({ addToCart }) => {
         </div>
       </div>
 
-      <div className="py-10">
-        <div className="container mx-auto">
-          <h2 className="text-4xl text-center font-bold mb-8">Our Menu</h2>
+      <div className="py-10 px-4">
+        <div className="container mx-auto max-w-7xl">
+          <h2 className="text-3xl sm:text-4xl text-center font-bold mb-8">Our Menu</h2>
           {menuCategories.map((category, index) => (
             <div key={index} className="mb-10">
               <h3 className="text-2xl font-bold mb-4">{category.category}</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {category.items.map((product) => (
-                  <div 
-                    key={product.id} 
-                    className="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center text-center"
+                  <div
+                    key={product.id}
+                    className="bg-gray-800 p-4 sm:p-6 rounded-lg shadow-lg flex flex-col items-center text-center"
                   >
-                    <img 
-                      src={product.image} 
-                      alt={product.name} 
-                      className="w-40 h-40 object-contain mb-4 rounded-md" 
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-28 h-28 sm:w-36 sm:h-36 object-cover mb-3 rounded-md"
                     />
-                    <h3 className="text-xl font-bold mb-2">{product.name}</h3>
-                    <p className="text-lg font-semibold mb-2">₹{product.price.toLocaleString()}</p>
+                    <h3 className="text-lg sm:text-xl font-bold mb-1">
+                      {product.name}
+                    </h3>
+                    <p className="text-lg font-semibold mb-3">
+                      ₹{product.price.toLocaleString()}
+                    </p>
+
                     {drinkCategories.includes(category.category) && (
-                      <div className="mb-4">
-                        <label className="block mb-2">
+                      <div className="mb-3 w-full">
+                        <label className="block mb-2 text-sm text-white/90">
                           Select Milk:
                         </label>
-                        <select 
-                          className="p-2 rounded-lg text-black" 
+                        <select
+                          className="p-2 rounded-lg text-black w-full"
                           value={selectedMilk[product.id] || "Whole Milk"}
                           onChange={(e) => handleMilkChange(product.id, e.target.value)}
                         >
-                          {milkOptions.map((milk, index) => (
-                            <option key={index} value={milk}>
+                          {milkOptions.map((milk, idx) => (
+                            <option key={idx} value={milk}>
                               {milk}
                             </option>
                           ))}
                         </select>
                       </div>
                     )}
-                    <button 
-                      onClick={() => handleAddToCart(product)} 
-                      className="bg-primary py-2 px-4 rounded-full text-white font-semibold hover:scale-105 transition-transform"
+
+                    <button
+                      onClick={() => handleAddToCart(product)}
+                      className="bg-primary py-2 px-4 rounded-full text-white font-semibold w-full hover:scale-105 transition-transform"
                     >
                       Add to Cart
                     </button>
