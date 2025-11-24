@@ -229,7 +229,8 @@ const Menu = ({ addToCart }) => {
           </div>
         </div>
       </div>
-
+           <br></br>
+           <br></br>
       <div className="py-10 px-4">
         <div className="container mx-auto max-w-7xl">
           <h2 className="text-3xl sm:text-4xl text-center font-bold mb-8">Our Menu</h2>
