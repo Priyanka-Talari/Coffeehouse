@@ -35,8 +35,8 @@ const Navbar = ({ cart = [] }) => {
 
   return (
     <>
-      {/* FIX: navbar no border, no white line */}
-      <nav className="bg-gradient-to-r from-secondary to-secondary/90 shadow-lg text-white fixed w-full z-50 border-none">
+      {/* FIXED: No border, no white line, content won't go under navbar */}
+      <nav className="bg-gradient-to-r from-secondary to-secondary/90 text-white fixed top-0 left-0 right-0 w-full z-50 border-0 shadow-lg">
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-16">
@@ -144,7 +144,7 @@ const Navbar = ({ cart = [] }) => {
 
         {/* Mobile Dropdown */}
         {menuOpen && (
-          <div className="sm:hidden bg-secondary/95 px-4 pb-4">
+          <div className="sm:hidden bg-secondary/95 px-4 pb-4 border-t-0">
             <div className="space-y-3">
               {Menu.map((menu) => (
                 <button
@@ -210,8 +210,8 @@ const Navbar = ({ cart = [] }) => {
         )}
       </nav>
 
-      {/* FIX: Prevent overlap — Add space below navbar */}
-      <div className="pt-20"></div>
+      {/* Spacer to prevent content from going under navbar */}
+      <div className="h-16"></div>
     </>
   );
 };
