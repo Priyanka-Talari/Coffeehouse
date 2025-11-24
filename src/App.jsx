@@ -142,11 +142,8 @@ const MainLayout = ({ user, cart, children }) => {
     <div className="overflow-x-hidden">
       {/* Admin pages use AdminNavbar, others use normal Navbar */}
       {isAdminRoute ? <AdminNavbar /> : <Navbar user={user} cart={cart} />}
-
-      {/* FIXED: Single spacer that matches navbar height exactly (pt-16 = 64px = h-16) */}
-      <div className={isAdminRoute ? "pt-0" : "pt-16"}>
         {children}
-      </div>
+      
     </div>
   );
 };
