@@ -208,7 +208,7 @@ const Menu = ({ addToCart }) => {
               </h1>
               <div data-aos="fade-up" data-aos-delay="400">
                 <button className="bg-gradient-to-r from-primary to-secondary border-2 border-primary hover:scale-105 duration-200 text-white py-2 px-4 rounded-full">
-                  Coffee And Code
+                  Scroll Down for Menu
                 </button>
               </div>
             </div>
