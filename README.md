@@ -1,8 +1,39 @@
-# React + Vite
+# ☕ Coffee House Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **Coffee House**, a full-stack coffee ordering platform built to bring the café experience online!  
+This project combines modern web technologies to provide a seamless ordering, customization, and feedback experience for customers.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
+
+- **Full-Stack Architecture** – Developed using **FastAPI** (backend) and **React.js** (frontend).
+- **Interactive Chatbot** – Built-in chatbot for browsing the menu and customizing coffee orders.
+- **Real-Time Inventory** – Dynamic tracking of stock levels to ensure up-to-date availability.
+- **Customer Feedback Module** – Captures user experience and suggestions for continuous improvement.
+
+---
+
+## 🧰 Tech Stack
+
+| Category | Technologies |
+|-----------|---------------|
+| **Frontend** | React.js, HTML, CSS |
+| **Backend** | FastAPI, Python |
+| **Database** | MySQL |
+| **Version Control** | Git, GitHub |
+
+---
+
+## 🖼️ Screenshots
+
+### Home Page
+![Coffee House Screenshot](https://github.com/Priyanka-Talari/Coffeehouse/blob/main/coffeehouse%20Main%20Page.PNG?raw=true)
+
+<video width="600" controls>
+  <source src="https://github.com/Priyanka-Talari/Coffeehouse/blob/main/CoffeeHouse%20.mp4" type="video/mp4">
+</video>
+
+
+
+
