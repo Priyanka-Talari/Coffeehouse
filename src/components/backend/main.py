@@ -13,11 +13,9 @@ DATABASE_CONFIG = {
 
 app = FastAPI()
 
-frontend_url = os.getenv("https://coffeehouse-seven.vercel.app/", "http://localhost:5173")
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[frontend_url],
+    allow_origins=["http://localhost:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -411,4 +409,4 @@ async def get_feedback():
         raise HTTPException(status_code=500, detail="Failed to fetch feedback")
     finally:
         cursor.close()
-        connection.close()
+        connection.close()     

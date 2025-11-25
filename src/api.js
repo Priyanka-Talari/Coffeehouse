@@ -112,7 +112,7 @@ export const getPopularItems = async (limit = 10) => {
   }
 };
 
-// ✅ Add a new item (with validation)
+// ✅ Add a new item (with validation) - FOR MENU ITEMS WITH IMAGES
 export const addItem = async (item) => {
   try {
     console.log("Adding item:", item);
@@ -144,7 +144,28 @@ export const addItem = async (item) => {
   }
 };
 
-// ✅ Update an existing item (with improved validation)
+// ✅ Add inventory item (for inventory management - simple JSON)
+export const addInventoryItem = async (item) => {
+  try {
+    console.log("Adding inventory item:", item);
+
+    // Validate required fields
+    if (!item.name || item.unit_price === undefined) {
+      throw new Error("Missing required fields: name or unit_price");
+    }
+
+    const response = await axios.post(`${API_URL}/items/`, item, {
+      headers: { "Content-Type": "application/json" },
+    });
+
+    console.log("✅ Inventory item added successfully:", response.data);
+    return response.data;
+  } catch (error) {
+    return handleApiError(error, "add inventory item");
+  }
+};
+
+// ✅ Update an existing item (with improved validation) - FOR MENU ITEMS WITH IMAGES
 export const updateItem = async (itemId, item) => {
   try {
     console.log(`Updating item ${itemId}...`, item);
@@ -180,6 +201,22 @@ export const updateItem = async (itemId, item) => {
     return response.data;
   } catch (error) {
     return handleApiError(error, "update item");
+  }
+};
+
+// ✅ Update inventory item (for inventory management - simple JSON)
+export const updateInventoryItem = async (itemId, item) => {
+  try {
+    console.log(`Updating inventory item ${itemId}...`, item);
+
+    const response = await axios.put(`${API_URL}/items/${itemId}`, item, {
+      headers: { "Content-Type": "application/json" },
+    });
+
+    console.log("✅ Inventory item updated successfully:", response.data);
+    return response.data;
+  } catch (error) {
+    return handleApiError(error, "update inventory item");
   }
 };
 
@@ -562,6 +599,8 @@ export default {
   getPopularItems,
   addItem,
   updateItem,
+  addInventoryItem,
+  updateInventoryItem,
   deleteItem,
   updateItemAvailability,
   processPayment,

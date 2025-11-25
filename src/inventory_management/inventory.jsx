@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchInventory, addItem, updateItem, deleteItem } from "../api";
+import { fetchInventory, addInventoryItem, updateInventoryItem, deleteItem } from "../api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -32,39 +32,39 @@ const Inventory = () => {
     }
   };
 
-  const handleAddOrUpdate = async () => {
-    try {
-      const quantityValue = parseInt(quantity, 10);
-      const priceValue = parseFloat(unitPrice);
-      const thresholdValue = parseInt(lowStockThreshold, 10);
+const handleAddOrUpdate = async () => {
+  try {
+    const quantityValue = parseInt(quantity, 10);
+    const priceValue = parseFloat(unitPrice);
+    const thresholdValue = parseInt(lowStockThreshold, 10);
 
-      if (!name.trim()) throw new Error("Item name is required");
-      if (isNaN(quantityValue)) throw new Error("Enter a valid quantity");
-      if (isNaN(priceValue)) throw new Error("Enter a valid price");
+    if (!name.trim()) throw new Error("Item name is required");
+    if (isNaN(quantityValue)) throw new Error("Enter a valid quantity");
+    if (isNaN(priceValue)) throw new Error("Enter a valid price");
 
-      const payload = {
-        name: name.trim(),
-        quantity: quantityValue,
-        category: category.trim() || null,
-        unit_price: priceValue,
-        low_stock_threshold: thresholdValue,
-        is_available: isAvailable,
-      };
+    const payload = {
+      name: name.trim(),
+      quantity: quantityValue,
+      category: category.trim() || null,
+      unit_price: priceValue,
+      low_stock_threshold: thresholdValue,
+      is_available: isAvailable,
+    };
 
-      if (editingItem) {
-        await updateItem(editingItem.id, payload);
-        toast.success("Item updated successfully!");
-      } else {
-        await addItem(payload);
-        toast.success("Item added successfully!");
-      }
-
-      resetForm();
-      fetchItems();
-    } catch (error) {
-      toast.error(error.message);
+    if (editingItem) {
+      await updateInventoryItem(editingItem.id, payload);  // CHANGED
+      toast.success("Item updated successfully!");
+    } else {
+      await addInventoryItem(payload);  // CHANGED
+      toast.success("Item added successfully!");
     }
-  };
+
+    resetForm();
+    fetchItems();
+  } catch (error) {
+    toast.error(error.message);
+  }
+};
 
   const resetForm = () => {
     setName("");
