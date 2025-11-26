@@ -23,12 +23,8 @@ This project combines modern web technologies to provide a seamless ordering, cu
 | **Database** | MySQL |
 | **Version Control** | Git, GitHub |
 
----
+https://github.com/user-attachments/assets/5ad05560-e276-4577-88e6-47fd883bcb98
 
-## 🖼️ Screenshots
-
-### Home Page
-![Coffee House Screenshot](https://github.com/Priyanka-Talari/Coffeehouse/blob/main/coffeehouse%20Main%20Page.PNG?raw=true)
 
 
 
